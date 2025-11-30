@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafi Jahin | Portfolio</title>
+  <meta name="description" content="Portfolio of Rafi Jahin – partnerships, digital health, data, and evaluation." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #f97316; /* warm orange */
+      --accent-soft: rgba(249, 115, 22, 0.12);
+      --text-main: #ffffff;     /* sharp white */
+      --text-muted: #bfc4ce;    /* readable but softer */
+      --border-subtle: #1f2937;
+      --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.55);
+      --radius-xl: 18px;
+      --radius-pill: 999px;
+      --max-width: 1080px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #050816 55%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* NAV */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.96), rgba(5, 8, 22, 0.75));
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem 0.9rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 0 0, #f97316, #facc15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #030712;
+      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.55);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-title-main {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-title-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.88rem;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, #f97316, #facc15);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 3.2rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.18rem 0.6rem 0.18rem 0.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.26), rgba(15, 23, 42, 0.85));
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.95rem;
+    }
+
+    .pill-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, #f97316, #facc15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #030712;
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(to right, #f97316, #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      max-width: 640px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.9rem;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #f97316;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #f97316, #facc15);
+      color: #030712;
+      box-shadow: 0 12px 30px rgba(248, 165, 76, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(248, 165, 76, 0.55);
+    }
+
+    .btn-ghost {
+      border-color: rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(75, 85, 99, 1);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+      font-size: 0.7rem;
+    }
+
+    .hero-meta-value {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    /* HERO RIGHT */
+
+    .hero-right {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .hero-card-main {
+      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.35), rgba(15, 23, 42, 0.95));
+      border-radius: var(--radius-xl);
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d1d5db;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card-body {
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-label-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-label {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+
+    .metric-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .mini-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 0.8rem 0.85rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .mini-card-title {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 0.3rem;
+    }
+
+    .mini-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.4rem;
+    }
+
+    .mini-badge {
+      font-size: 0.66rem;
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 1.6rem 0 0.4rem;
+    }
+
+    .section-header {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .section-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* CARDS */
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.1), transparent);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+    }
+
+    .card-body {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-list {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      list-style: none;
+      padding-left: 0.8rem;
+    }
+
+    .card-list li {
+      position: relative;
+      margin-bottom: 0.28rem;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: -0.8rem;
+      color: #f97316;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+
+    .chip {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    /* SKILLS */
+
+    .skill-group {
+      margin-bottom: 0.7rem;
+    }
+
+    .skill-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.3rem;
+    }
+
+    /* PROJECTS */
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: #bfdbfe;
+      margin-top: 0.25rem;
+    }
+
+    .project-link span:last-child {
+      font-size: 0.9rem;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .contact-card {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .contact-pill {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .contact-pill:hover {
+      border-color: #f97316;
+      transform: translateY(-1px);
+    }
+
+    .contact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.7rem;
+      color: #9ca3af;
+      margin-bottom: 0.2rem;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 1.6rem 0 1.3rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      margin-top: 1.4rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 0.72rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .three-col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        padding-inline: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .three-col,
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card-main {
+        padding-inline: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="logo">RJ</div>
+        <div class="nav-title">
+          <span class="nav-title-main">Rafi Jahin</span>
+          <span class="nav-title-sub">Partnerships · Digital Health · Data</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#certifications">Certifications</a>
+        <a class="nav-link" href="#news">News</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-ghost nav-cta">
+        <span>Let’s talk</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="about" class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-left">
+          <div class="pill">
+            <div class="pill-dot">●</div>
+            <span>Partnerships · Digital health · Data · Evaluation</span>
+          </div>
+
+          <h1 class="hero-title">
+            I connect <span class="hero-highlight">programmes, platforms, and data</span> so things actually work on the ground.
+          </h1>
+
+          <p class="hero-subtitle">
+            I’m Rafi, a partnerships, digital health, and data professional who has worked with UNFPA, Swisscontact,
+            GAIN and FES. I sit at the intersection of programme implementation, platforms (LMS, telehealth, DHIS2-facing
+            work), and analytics – helping teams move from MoUs and pilots to systems, evidence, and real users.
+          </p>
+
+          <div class="hero-badges">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Officer – Partnership &amp; Innovation, ASTHA (2021–2025)</span>
+            </div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>National Young &amp; Emerging Evaluator – UNFPA Bangladesh 10<sup>th</sup> CPE</span>
+            </div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Data, digital health &amp; global diplomacy training stack</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <!-- TODO: replace with real CV link when ready -->
+            <a class="btn btn-primary" href="#" target="_blank" rel="noopener">
+              <span>Download CV</span>
+              <span class="btn-icon">↓</span>
+            </a>
+            <a class="btn btn-ghost" href="#projects">
+              <span>View selected work</span>
+              <span class="btn-icon">↳</span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Current role</span>
+              <span class="hero-meta-value">National Consultant, UNFPA Bangladesh CPE</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Last major post</span>
+              <span class="hero-meta-value">Officer – Partnership &amp; Innovation, ASTHA (Swisscontact)</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Location</span>
+              <span class="hero-meta-value">Dhaka, Bangladesh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO RIGHT -->
+        <div class="hero-right">
+          <div class="hero-card-main">
+            <div class="hero-card-tag">What I actually do</div>
+            <div class="hero-card-title">Partnerships + platforms + analytics, stitched together.</div>
+            <p class="hero-card-body">
+              I move between MoUs, LMS and telehealth platforms, training plans, data tables, and evaluation findings.
+              The goal is always the same: make it easier for frontline workers and decision-makers to see what’s working,
+              fix what isn’t, and prove it to donors without fake polish.
+            </p>
+
+            <div class="hero-label-row">
+              <div class="hero-label">ASTHA Community Paramedic Project</div>
+              <div class="hero-label">UNFPA 10<sup>th</sup> CPE</div>
+              <div class="hero-label">Digital health &amp; DHIS2-facing work</div>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric">
+                <span class="metric-value">4+ yrs</span>
+                <span class="metric-label">Project &amp; evaluation experience</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">12+ dist.</span>
+                <span class="metric-label">Implementation &amp; fieldwork coverage</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">30+ inst.</span>
+                <span class="metric-label">On the CP e-learning platform</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-row">
+            <div class="mini-card">
+              <div class="mini-card-title">Toolbox</div>
+              <p>Excel/Power BI, Python, R, Moodle, DHIS2-facing work, and LLM workflows for document review and transcripts.</p>
+              <div class="mini-badges">
+                <span class="mini-badge">Moodle admin</span>
+                <span class="mini-badge">Power BI</span>
+                <span class="mini-badge">Python &amp; R</span>
+                <span class="mini-badge">LLM prompts</span>
+              </div>
+            </div>
+
+            <div class="mini-card">
+              <div class="mini-card-title">Where I fit</div>
+              <p>Teams that need someone who likes details, understands politics and systems, and is not allergic to data or field realities.</p>
+              <div class="mini-badges">
+                <span class="mini-badge">UN &amp; INGOs</span>
+                <span class="mini-badge">Health &amp; SRH</span>
+                <span class="mini-badge">Digital &amp; data</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="shell">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-kicker">Partnerships, digital health, implementation, and evaluation – in that order.</p>
+        </div>
+
+        <div class="section-grid two-col">
+
+          <!-- Swisscontact -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Officer – Partnership &amp; Innovation</div>
+                <div class="card-subtitle">Swisscontact · ASTHA Community Paramedic Project · Nov 2021 – Jan 2025</div>
+              </div>
+              <div class="card-tag">Partnerships &amp; digital health</div>
+            </div>
+
+            <p class="card-body">
+              Led partnerships, digital innovation, and scaling for ASTHA, linking curriculum, platforms, employers
+              and government so Community Paramedics (CPs) could actually work, earn, and serve people across 12 districts.
+            </p>
+
+            <ul class="card-list">
+              <li><strong>Strategic partnerships &amp; MoUs:</strong> Orchestrated partnerships with Shomvob, Zabai, Zaynax Health and Roche Bangladesh to expand job opportunities, telehealth services, and specialised cancer screening roles for CPs.</li>
+              <li><strong>Digital innovation:</strong> Spearheaded migration of the CP curriculum to a mobile-optimised, open-source Moodle LMS for 30 training institutes, integrating interactive H5P and 2D/3D content and developing standards for low-bandwidth modules.</li>
+              <li><strong>Capacity building:</strong> Organised a six-day ToT and follow-up support for CP faculty, and integrated entrepreneurship skills so CPs could run sustainable health practices, not just pass exams.</li>
+              <li><strong>Employment &amp; income:</strong> Co-designed job fairs and digital job-platform linkages (e.g. with Shomvob) that connected hundreds of CP graduates to employers and contributed to measurable income growth for graduates.</li>
+              <li><strong>Policy &amp; government engagement:</strong> Supported national consultative meetings and engagement with DGHS and family planning actors to position CPs in primary health and referral discussions.</li>
+              <li><strong>Service diversification:</strong> Helped roll out dengue-response trainings with the CDC unit and pilot cancer screening initiatives with Roche, broadening CP roles in early detection and community awareness.</li>
+            </ul>
+
+            <div class="chip-row">
+              <span class="chip">Partnership management</span>
+              <span class="chip">Digital health platforms</span>
+              <span class="chip">Moodle LMS</span>
+              <span class="chip">Labour-market linkages</span>
+              <span class="chip">Government engagement</span>
+            </div>
+          </article>
+
+          <!-- UNFPA -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">National Young &amp; Emerging Evaluator</div>
+                <div class="card-subtitle">UNFPA Bangladesh · 10<sup>th</sup> Country Programme Evaluation · 2024–2025</div>
+              </div>
+              <div class="card-tag">Evaluation &amp; analytics</div>
+            </div>
+            <p class="card-body">
+              Co-leading the analytical backbone of UNFPA Bangladesh’s 10<sup>th</sup> CPE, from framework design to data
+              synthesis, with structured use of AI tools across the evaluation workflow.
+            </p>
+            <ul class="card-list">
+              <li>Co-designed the evaluation framework, ToC refinements, and full evaluation matrix aligned with UNEG and the UNFPA 2024 Evaluation Handbook.</li>
+              <li>Built and maintained evidence systems: findings grids, indicator trend tables, LNOB trackers, and effectiveness annexes.</li>
+              <li>Led quantitative trend analysis and supported triangulation with BDHS and other national datasets.</li>
+              <li>Planned and supported multi-district field missions, FGDs and KIIs, including tools, sampling logic, and note-taking structures.</li>
+              <li>Introduced AI tools (NotebookLM, Gemini, LLMs) for document review, transcript handling, and consistency checks under ethical safeguards.</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">UNFPA Evaluation Handbook 2024</span>
+              <span class="chip">UNEG standards</span>
+              <span class="chip">Evidence systems</span>
+              <span class="chip">AI-assisted analysis</span>
+            </div>
+          </article>
+
+          <!-- GAIN -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Project Assistant – Digital Innovation</div>
+                <div class="card-subtitle">Global Alliance for Improved Nutrition (GAIN)</div>
+              </div>
+              <div class="card-tag">Innovation</div>
+            </div>
+            <p class="card-body">
+              Worked on a digital traceability / innovation project in the nutrition space, supporting data and coordination tasks.
+            </p>
+            <ul class="card-list">
+              <li>Supported field and partner coordination on a traceability-oriented intervention in food/nutrition supply chains.</li>
+              <li>Helped keep datasets, trackers, and documentation in shape for reporting and learning.</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Digital traceability</span>
+              <span class="chip">Nutrition</span>
+              <span class="chip">Data housekeeping</span>
+            </div>
+          </article>
+
+          <!-- FES -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Research Fellow</div>
+                <div class="card-subtitle">Friedrich-Ebert-Stiftung (FES)</div>
+              </div>
+              <div class="card-tag">Research</div>
+            </div>
+            <p class="card-body">
+              Supported a qualitative policy study on gender, livelihoods, and social protection with desk review, coding, and synthesis.
+            </p>
+            <ul class="card-list">
+              <li>Contributed to literature review and framing of a study at the intersection of gender, work, and protection systems.</li>
+              <li>Helped organise and process qualitative material for analysis and reporting.</li>
+            </ul>
+            <div class="chip-row">
+              <span class="chip">Qualitative research</span>
+              <span class="chip">Gender &amp; livelihoods</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="shell">
+        <div class="section-header">
+          <h2 class="section-title">Skills &amp; Focus</h2>
+          <p class="section-kicker">Not just “good communication” – actual levers I pull in teams.</p>
+        </div>
+
+        <div class="section-grid three-col">
+
+          <div class="card">
+            <div class="skill-group">
+              <div class="skill-label">Programme &amp; partnerships</div>
+              <div class="chip-row">
+                <span class="chip">Partnership &amp; MoU management</span>
+                <span class="chip">Private-sector engagement</span>
+                <span class="chip">Job fairs &amp; labour-market linkages</span>
+                <span class="chip">Stakeholder coordination</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">Sectors</div>
+              <div class="chip-row">
+                <span class="chip">Community health / CPs</span>
+                <span class="chip">Digital health</span>
+                <span class="chip">SRH &amp; GBV (evaluation)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="skill-group">
+              <div class="skill-label">Data &amp; analytics</div>
+              <div class="chip-row">
+                <span class="chip">Excel (advanced)</span>
+                <span class="chip">Power BI dashboards</span>
+                <span class="chip">Python &amp; R basics</span>
+                <span class="chip">Data cleaning &amp; documentation</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">AI &amp; automation</div>
+              <div class="chip-row">
+                <span class="chip">NotebookLM &amp; Gemini</span>
+                <span class="chip">ChatGPT workflows</span>
+                <span class="chip">Prompt design</span>
+                <span class="chip">AI-assisted transcripts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="skill-group">
+              <div class="skill-label">Digital health &amp; systems</div>
+              <div class="chip-row">
+                <span class="chip">Moodle LMS (admin)</span>
+                <span class="chip">DHIS2 basics</span>
+                <span class="chip">E-learning design</span>
+                <span class="chip">Telehealth / e-referrals</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-label">Evaluation</div>
+              <div class="chip-row">
+                <span class="chip">Evaluation matrix design</span>
+                <span class="chip">ToC &amp; indicators</span>
+                <span class="chip">Triangulation &amp; synthesis</span>
+                <span class="chip">Findings–Conclusions–Recommendations</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="shell">
+        <div class="section-header">
+          <h2 class="section-title">Selected Projects</h2>
+          <p class="section-kicker">Concrete things I’ve built or driven that you can click on.</p>
+        </div>
+
+        <div class="section-grid two-col">
+          <!-- Project 1 -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">CPE Visual Ideas</div>
+                <div class="card-subtitle">UNFPA Bangladesh · Evaluation data visuals</div>
+              </div>
+              <div class="card-tag">Data viz</div>
+            </div>
+            <p class="card-body">
+              A GitHub Pages site showcasing options for presenting complex CPE findings and equity data without drowning people in tables.
+              Built as a playground to align evaluation visuals with what senior management actually reads.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Power BI / custom charts</span>
+              <span class="chip">UNFPA branding</span>
+              <span class="chip">GitHub Pages</span>
+            </div>
+            <a class="project-link" href="https://rafijahiin.github.io/visualideas/" target="_blank" rel="noopener">
+              <span>Visit project</span>
+              <span>↗</span>
+            </a>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Trend Analysis – SRH &amp; GBV</div>
+                <div class="card-subtitle">Country Programme trend analysis demos</div>
+              </div>
+              <div class="card-tag">Analytics</div>
+            </div>
+            <p class="card-body">
+              A set of time-series and indicator breakdown visuals for SRH and GBV outcomes, built to support narrative findings in the CPE.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Time-series</span>
+              <span class="chip">Reproductive health</span>
+              <span class="chip">Evaluation narratives</span>
+            </div>
+            <a class="project-link" href="https://rafijahiin.github.io/trend-analysis/" target="_blank" rel="noopener">
+              <span>Visit project</span>
+              <span>↗</span>
+            </a>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Indicator Theme Explorer</div>
+                <div class="card-subtitle">Evaluation indicators by thematic area</div>
+              </div>
+              <div class="card-tag">Data structure</div>
+            </div>
+            <p class="card-body">
+              A GitHub-hosted interactive overview of indicators by theme and outcome, supporting a structured view of CPE evidence sources.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Evaluation indicators</span>
+              <span class="chip">GitHub Pages</span>
+            </div>
+            <a class="project-link" href="https://rafijahiin.github.io/Achievement-by-Theme-withIndicatorDetailsDecember2024/" target="_blank" rel="noopener">
+              <span>Visit project</span>
+              <span>↗</span>
+            </a>
+          </article>
+
+          <!-- Project 4 (AI workflows) -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">AI Sidecar for Evaluation &amp; Programme Work</div>
+                <div class="card-subtitle">NotebookLM &amp; LLM workflows</div>
+              </div>
+              <div class="card-tag">AI workflow</div>
+            </div>
+            <p class="card-body">
+              Ongoing experiments with using LLMs to support document review, transcript structuring, audit trails and evidence checks for evaluations
+              and programme reports – without outsourcing judgment to the model.
+            </p>
+            <div class="chip-row">
+              <span class="chip">NotebookLM</span>
+              <span class="chip">Prompt systems</span>
+              <span class="chip">Audit trails</span>
+            </div>
+            <span class="project-link">
+              <span>Documented privately · available on request</span>
+            </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="shell">
+        <div class="section-header">
+          <h2 class="section-title">Certifications &amp; Continuous Learning</h2>
+          <p class="section-kicker">
+            Formal courses and credentials across data, digital health, project management, and global affairs.
+          </p>
+        </div>
+
+        <div class="section-grid two-col">
+
+          <!-- Data, analytics & programming -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Data, Analytics &amp; Programming</div>
+                <div class="card-subtitle">Structured training in data tools and thinking</div>
+              </div>
+              <div class="card-tag">Data</div>
+            </div>
+            <ul class="card-list">
+              <li><strong>Google Data Analytics (Professional Certificate)</strong> – Google · Dec 2024 · Credential ID FZIE53ZE49MA</li>
+              <li><strong>Scientific Computing with Python</strong> – freeCodeCamp · Oct 2020</li>
+              <li><strong>R Programming</strong> – Johns Hopkins University (Coursera) · May 2020 · Credential ID DKLWTXQDAYH2</li>
+              <li><strong>R Programming Track</strong> – DataCamp · May 2020</li>
+              <li><strong>Introduction to the tidyverse</strong> – DataCamp · May 2020</li>
+              <li><strong>What is Data Science?</strong> – IBM (Coursera) · May 2020 · Credential ID QRJNLVJKLLRM</li>
+              <li><strong>The Data Scientist’s Toolbox</strong> – Johns Hopkins University (Coursera) · Apr 2020 · Credential ID H96UG3UMXJNM</li>
+              <li><strong>Introduction to Data Curation for SAS Data Scientists</strong> – SAS · Apr 2020</li>
+              <li><strong>Ask Questions to Make Data-Driven Decisions</strong> – Google · Jul 2021 · Credential ID RK82ZRHC44PM</li>
+              <li><strong>Power BI Essential Training</strong> – LinkedIn Learning · Sep 2022 · Credential ID AbvnbUuec-jMXZRi2Yo7PFjfqGDo</li>
+            </ul>
+            <div class="chip-row" style="margin-top:0.45rem;">
+              <span class="chip">Python</span>
+              <span class="chip">R / tidyverse</span>
+              <span class="chip">Power BI</span>
+              <span class="chip">Data curation</span>
+            </div>
+          </article>
+
+          <!-- Digital health, PM, diplomacy & other -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Digital Health, PM &amp; Global Affairs</div>
+                <div class="card-subtitle">Systems, organisations, and how the UN world works</div>
+              </div>
+              <div class="card-tag">Systems</div>
+            </div>
+            <ul class="card-list">
+              <li><strong>Introduction to DHIS2</strong> – DHIS2 Online Academy · Sep 2024 (GEN-D001-en)</li>
+              <li><strong>Digital Health Specialization</strong> – Imperial College London · Feb 2023</li>
+              <li><strong>Google Project Management (Professional Certificate)</strong> – Google · Feb 2023</li>
+              <li><strong>Market System Development</strong> – DevLearn Consultancy · Jan 2022</li>
+              <li><strong>Global Diplomacy: the United Nations in the World</strong> – Coursera · Apr 2020 · Credential ID SFFJC8MNJUZA</li>
+              <li><strong>International Organizations Management</strong> – Coursera · Apr 2020 · Credential ID GQAAM667NVHT</li>
+              <li><strong>The Sustainable Development Goals – A global, transdisciplinary vision for the future</strong> – Coursera · Apr 2020 · Credential ID 78RBFLRURHTZ</li>
+              <li><strong>Social Norms, Social Change I</strong> – Coursera · Apr 2020 · Credential ID BCYNYCM6JWBP</li>
+              <li><strong>Learning How to Learn</strong> – Coursera · Apr 2020 · Credential ID SS2SY9YQ9L96</li>
+              <li><strong>Certified Peer Reviewer</strong> – Publons · Jun 2021</li>
+              <li><strong>Code of Conduct &amp; PSEAH 2022</strong> – Swisscontact · Sep 2022</li>
+              <li><strong>EFSET English – Advanced / Proficient (CEFR C1/C2)</strong> – EFSET</li>
+              <li><strong>Moodle Administration Tutorial: Beginner–Intermediate</strong> – Udemy</li>
+            </ul>
+            <div class="chip-row" style="margin-top:0.45rem;">
+              <span class="chip">Digital health</span>
+              <span class="chip">Project management</span>
+              <span class="chip">UN &amp; global governance</span>
+              <span class="chip">Moodle admin</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Optional other engagements / volunteering -->
+        <div class="section-grid" style="margin-top:1rem;">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Volunteering &amp; Other Engagements</div>
+                <div class="card-subtitle">Early leadership, competitions, and tech/creative roles</div>
+              </div>
+              <div class="card-tag">Beyond coursework</div>
+            </div>
+            <ul class="card-list">
+              <li><strong>Vice Chair &amp; Secretary</strong> – IEEE Jahangirnagar University Student Branch · 2018–2020</li>
+              <li><strong>Campus Ambassador</strong> – National Robotech Festival · ICT Division</li>
+              <li><strong>Student Ambassador</strong> – REVE Antivirus</li>
+              <li><strong>First DRR Photography Exhibition</strong> – JICA</li>
+              <li><strong>Inter-university photography contest</strong> – JUPS &amp; PhotoBee participation</li>
+              <li><strong>Participant</strong> – ACM ICPC-related contests</li>
+              <li><strong>Trainings</strong> – Graphics design and advanced game development (ICT Division)</li>
+              <li><strong>Attendee</strong> – TEDx BUET</li>
+            </ul>
+            <div class="chip-row" style="margin-top:0.45rem;">
+              <span class="chip">Student leadership</span>
+              <span class="chip">STEM &amp; tech outreach</span>
+              <span class="chip">Photography &amp; DRR</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWS / MEDIA -->
+    <section id="news">
+      <div class="shell">
+        <div class="section-header">
+          <h2 class="section-title">News &amp; Media</h2>
+          <p class="section-kicker">
+            External coverage of the platforms, partnerships, and labour-market work I contributed to.
+          </p>
+        </div>
+
+        <div class="section-grid three-col">
+
+          <!-- ASTHA e-learning -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">ASTHA e-learning &amp; digital platform</div>
+                <div class="card-subtitle">Designing, scaling, and opening the CP platform</div>
+              </div>
+              <div class="card-tag">Digital learning</div>
+            </div>
+            <p class="card-body">
+              Multiple Swisscontact stories document the journey of turning the Community Paramedic curriculum into
+              an interactive, mobile-friendly e-learning platform – including training teachers and making the platform open-source.
+            </p>
+            <ul class="card-list">
+              <li>
+                <a href="https://www.swisscontact.org/en/news/the-community-paramedic-cp-training-is-now-interactively-digitized" target="_blank" rel="noopener">
+                  The Community Paramedic (CP) training is now interactively digitized – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.swisscontact.org/en/news/teachers-receive-training-on-e-learning-platform-astha" target="_blank" rel="noopener">
+                  Teachers receive training on e-Learning platform, ASTHA – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.swisscontact.org/en/news/astha-takes-interactive-e-learning-to-its-next-level" target="_blank" rel="noopener">
+                  ASTHA takes interactive e-Learning to its next level – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.swisscontact.org/en/news/the-e-learning-platform-for-the-community-paramedic-training-is-now-open-source" target="_blank" rel="noopener">
+                  The e-Learning platform for the Community Paramedic training is now open-source – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.swisscontact.org/en/news/into-the-future-of-training-an-e-learning-platform-for-community-paramedic-curriculum" target="_blank" rel="noopener">
+                  Into the future of training: An e-Learning platform for Community Paramedic Curriculum – Swisscontact
+                </a>
+              </li>
+            </ul>
+            <div class="chip-row" style="margin-top:0.45rem;">
+              <span class="chip">Moodle LMS</span>
+              <span class="chip">Curriculum digitisation</span>
+              <span class="chip">Teacher capacity</span>
+            </div>
+          </article>
+
+          <!-- Partnerships & labour market links -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Private-sector &amp; employment partnerships</div>
+                <div class="card-subtitle">Telehealth, platforms, and job fairs</div>
+              </div>
+              <div class="card-tag">Partnerships</div>
+            </div>
+            <p class="card-body">
+              Articles and posts on how ASTHA connected CPs to real jobs through telehealth, matching platforms, and focused job fairs.
+            </p>
+            <ul class="card-list">
+              <li>
+                <a href="https://www.swisscontact.org/en/news/swisscontact-and-zabai-team-up-to-empower-community-paramedic-cp-practitioners" target="_blank" rel="noopener">
+                  Swisscontact and Zabai team up to empower CP practitioners – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.thedailystar.net/business/organisation-news/press-releases/news/zaynax-health-and-astha-join-hands-extend-affordable-healthcare-services-3429726" target="_blank" rel="noopener">
+                  Zaynax Health and ASTHA join hands to extend affordable healthcare services – The Daily Star
+                </a>
+              </li>
+              <li>
+                <a href="https://www.swisscontact.org/en/news/job-fair-in-sylhet-connects-community-paramedics-with-employers" target="_blank" rel="noopener">
+                  Job Fair in Sylhet connects community paramedics with employers – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.swisscontact.org/en/news/astha-and-shomvob-has-partnered-to-promote-employment-opportunities-for-community-paramedics-cps" target="_blank" rel="noopener">
+                  ASTHA and Shomvob partner to promote employment opportunities for CPs – Swisscontact
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/shomvobBD/videos/%E0%A7%A8%E0%A7%A6-%E0%A6%B8%E0%A7%8D%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%A5%E0%A6%B8%E0%A7%87%E0%A6%AC%E0%A6%BE-%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A7%E0%A6%BE%E0%A6%A8%E0%A6%95%E0%A6%BE%E0%A6%B0%E0%A7%80-%E0%A6%B8%E0%A6%82%E0%A6%B8%E0%A7%8D%E0%A6%A5%E0%A6%BE-%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A7%87-%E0%A6%86%E0%A7%9F%E0%A7%8B%E0%A6%9C%E0%A6%BF%E0%A6%A4-%E0%A6%B0%E0%A6%82%E0%A6%AA%E0%A7%81%E0%A6%B0%E0%A7%87-%E0%A6%B8%E0%A7%8D%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%A5%E0%A6%95%E0%A6%B0%E0%A7%8D%E0%A6%AE%E0%A7%80%E0%A6%B0-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A7%9F%E0%A6%BE%E0%A6%B0-%E0%A6%AE%E0%A7%87%E0%A6%B2%E0%A6%BE/1530961021139389/" target="_blank" rel="noopener">
+                  Rangpur “Health Worker Career Fair 2024” video – Shomvob (Facebook)
+                </a>
+              </li>
+            </ul>
+            <div class="chip-row" style="margin-top:0.45rem;">
+              <span class="chip">Private-sector partnerships</span>
+              <span class="chip">Job placement</span>
+              <span class="chip">Health workforce</span>
+            </div>
+          </article>
+
+          <!-- Context card -->
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">What this coverage shows</div>
+                <div class="card-subtitle">Not just reports – visible programme shifts</div>
+              </div>
+              <div class="card-tag">Context</div>
+            </div>
+            <p class="card-body">
+              Taken together, these pieces show the trajectory of ASTHA and related work: from curriculum and platform
+              design to real-world adoption by institutes, teachers, employers, and media.
+            </p>
+            <ul class="card-list">
+              <li>Multiple articles recognise the e-learning platform as a core innovation for CP training.</li>
+              <li>Partnership news links the programme to concrete employment and telehealth opportunities.</li>
+              <li>Career fairs and job-matching platforms show how the work moved beyond training into labour-market outcomes.</li>
+            </ul>
+            <div class="chip-row" style="margin-top:0.45rem;">
+              <span class="chip">Innovation narrative</span>
+              <span class="chip">Visibility with donors</span>
+              <span class="chip">Scalability</span>
+            </div>
+
+            <a class="project-link" href="https://sites.google.com/view/rafi-jahin/news-links" target="_blank" rel="noopener" style="margin-top:0.7rem;">
+              <span>View curated news list</span>
+              <span>↗</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="shell">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-kicker">If you need someone who can think, implement, and not get scared by data.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <p>
+              I’m interested in roles and collaborations at the intersection of
+              <strong>programme implementation, digital health, data, and evaluation</strong> – especially within
+              UN agencies, foundations, and serious NGOs.
+            </p>
+            <p style="margin-top: 0.6rem;">
+              If you want someone who can move between field realities, indicator tables, MoUs, and senior meetings
+              without getting lost, feel free to reach out.
+            </p>
+
+            <div style="margin-top: 0.9rem;">
+              <div class="contact-label">Preferred topics</div>
+              <div class="chip-row">
+                <span class="chip">Partnerships &amp; platforms</span>
+                <span class="chip">Digital health &amp; data</span>
+                <span class="chip">Evaluation support</span>
+                <span class="chip">AI for practical workflows</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="contact-row">
+              <!-- TODO: replace email -->
+              <a class="contact-pill" href="mailto:your.email@here" id="email-pill">
+                <span>✉</span>
+                <span>Email</span>
+              </a>
+              <a class="contact-pill" href="https://github.com/rafijahiin" target="_blank" rel="noopener">
+                <span>★</span>
+                <span>GitHub</span>
+              </a>
+              <!-- TODO: replace LinkedIn link -->
+              <a class="contact-pill" href="#" target="_blank" rel="noopener">
+                <span>in</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+            <div style="margin-top: 0.9rem;">
+              <div class="contact-label">Quick facts</div>
+              <ul class="card-list" style="margin-top: 0.25rem;">
+                <li>Based in Dhaka, open to remote or relocation with the right role.</li>
+                <li>Used to being the youngest in the team and still holding responsibility.</li>
+                <li>Happy to walk you through my ASTHA work or CPE workflows in detail.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div>© <span id="year"></span> Rafi Jahin. All rights reserved.</div>
+      <div class="footer-links">
+        <span>Built with plain HTML/CSS and hosted on GitHub Pages.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function onScroll() {
+    const scrollPos = window.scrollY + 120;
+
+    sections.forEach((sec) => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute("id");
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", onScroll);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
