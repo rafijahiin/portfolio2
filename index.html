@@ -3,64 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rafi Jahin | AI, Data & Implementation Specialist</title>
-  <meta name="description" content="Portfolio of Rafi Jahin – Bridging field implementation and evaluation with Data & AI." />
+  <title>Rafi Jahin | Data, Digital Health & Evaluation</title>
+  <meta name="description" content="Portfolio of Rafi Jahin – data, digital health and evaluation professional working across UN and INGO settings with AI-assisted evidence systems." />
 
-  <!-- Google Font: Inter & JetBrains Mono -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
     :root {
-      /* Core Palette - Deep, Professional Navy & Slate */
-      --bg-body: #020617;
-      --bg-gradient-start: #0f172a;
-      --bg-gradient-end: #020617;
-      
-      /* Surface Colors (Glassmorphism) */
-      --surface-1: rgba(30, 41, 59, 0.4);
-      --surface-2: rgba(30, 41, 59, 0.7);
-      --surface-border: rgba(148, 163, 184, 0.1);
-      --surface-hover: rgba(51, 65, 85, 0.6);
+      --bg-page: #020617;       /* near black */
+      --bg-elevated: #020617;
+      --bg-section: #020617;
+      --bg-card: #020617;
+      --bg-chip: #0f172a;
 
-      /* Accents */
-      --accent-primary: #f97316; /* Professional Orange */
-      --accent-glow: rgba(249, 115, 22, 0.15);
-      --accent-secondary: #38bdf8; /* Sky Blue for Tech/Data */
-      
-      /* Text */
-      --text-heading: #f8fafc;
-      --text-body: #94a3b8;
-      --text-highlight: #e2e8f0;
+      --border-subtle: #1e293b;
 
-      /* Spacing & Layout */
+      --text-main: #e5e7eb;     /* light grey */
+      --text-muted: #9ca3af;
+      --text-strong: #f9fafb;
+      --accent: #22d3ee;        /* cyan */
+      --accent-soft: rgba(34, 211, 238, 0.12);
+      --accent-2: #facc15;      /* amber for highlights */
+      --accent-2-soft: rgba(250, 204, 21, 0.12);
+
+      --radius: 14px;
       --max-width: 1100px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-soft: 0 20px 45px rgba(15, 23, 42, 0.75);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: "Inter", sans-serif;
-      background-color: var(--bg-body);
-      background-image: 
-        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
-      color: var(--text-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
     }
 
-    /* Utility */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.18s ease, opacity 0.18s ease;
+    }
+    a:hover {
+      color: #67e8f9;
+    }
+
     .container {
       width: 100%;
       max-width: var(--max-width);
@@ -68,744 +70,1371 @@
       padding: 0 1.5rem;
     }
 
-    h1, h2, h3, h4 { color: var(--text-heading); letter-spacing: -0.02em; }
-    a { text-decoration: none; color: inherit; transition: var(--transition); }
-    
-    .mono { font-family: "JetBrains Mono", monospace; }
-    .highlight { color: var(--accent-primary); }
-    .highlight-blue { color: var(--accent-secondary); }
+    /* NAVBAR */
 
-    /* --- Navigation --- */
     .nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(2, 6, 23, 0.8);
-      border-bottom: 1px solid var(--surface-border);
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.88));
+      border-bottom: 1px solid rgba(30, 64, 175, 0.45);
     }
 
-    .nav-content {
+    .nav-inner {
+      height: 68px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 72px;
+      justify-content: space-between;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--text-heading);
+    .nav-logo {
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .logo span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--accent-primary), #fcd34d);
+    .nav-logo-mark {
+      width: 28px;
+      height: 28px;
       border-radius: 8px;
-      color: #0f172a;
-      font-size: 0.9rem;
+      background: radial-gradient(circle at 20% 0, #22c55e 0, #22d3ee 35%, #0ea5e9 70%, #1d4ed8 100%);
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+    }
+
+    .nav-logo-text {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-strong);
     }
 
     .nav-links {
       display: flex;
       gap: 1.5rem;
+      font-size: 0.88rem;
     }
 
     .nav-link {
-      font-size: 0.85rem;
+      color: var(--text-muted);
       font-weight: 500;
-      color: var(--text-body);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       position: relative;
     }
 
-    .nav-link:hover, .nav-link.active { color: var(--text-heading); }
-    
-    .nav-link.active::after {
-      content: '';
+    .nav-link::after {
+      content: "";
       position: absolute;
-      bottom: -4px;
       left: 0;
-      width: 100%;
+      bottom: -6px;
+      width: 0;
       height: 2px;
-      background: var(--accent-primary);
-      border-radius: 2px;
+      background: linear-gradient(to right, #22d3ee, #facc15);
+      border-radius: 999px;
+      transition: width 0.18s ease;
     }
 
-    .menu-toggle { display: none; font-size: 1.5rem; color: var(--text-heading); cursor: pointer; }
+    .nav-link:hover {
+      color: var(--text-main);
+    }
 
-    /* --- Hero Section --- */
+    .nav-link.active {
+      color: var(--accent);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* HERO */
+
     .hero {
-      padding: 8rem 0 5rem;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
+      padding: 4.5rem 0 3rem;
     }
 
-    .hero-grid {
+    .hero-inner {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 4rem;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 3rem;
       align-items: center;
     }
 
-    .status-pill {
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 99px;
-      background: var(--surface-1);
-      border: 1px solid var(--surface-border);
+      gap: 0.6rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      margin-bottom: 1.4rem;
       font-size: 0.75rem;
-      color: var(--accent-secondary);
-      margin-bottom: 1.5rem;
-      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--accent-secondary);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-secondary);
+    .hero-kicker span.highlight {
+      color: var(--accent-2);
+      font-weight: 600;
     }
 
     .hero-title {
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      line-height: 1.1;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--text-strong);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
     }
 
     .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-body);
-      margin-bottom: 2rem;
-      max-width: 650px;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-subtitle strong {
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
     }
 
     .hero-actions {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.9rem;
       margin-bottom: 2rem;
     }
 
-    .btn {
+    .btn-primary,
+    .btn-ghost {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: var(--transition);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid transparent;
       cursor: pointer;
+      font-weight: 500;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
     }
 
     .btn-primary {
-      background: var(--accent-primary);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+      background: radial-gradient(circle at 0 0, #22d3ee 0, #0ea5e9 30%, #1d4ed8 100%);
+      color: #0b1120;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.85);
     }
-    .btn-primary:hover { transform: translateY(-2px); background: #ea580c; }
 
-    .btn-secondary {
-      background: var(--surface-1);
-      color: var(--text-heading);
-      border: 1px solid var(--surface-border);
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.95);
     }
-    .btn-secondary:hover { background: var(--surface-hover); border-color: var(--text-body); }
 
-    .hero-badges {
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--accent);
+    }
+
+    .hero-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.75rem;
-      color: var(--text-body);
-      margin-top: 1rem;
-    }
-    
-    .hero-badge {
-      background: var(--surface-1);
-      border: 1px solid var(--surface-border);
-      padding: 0.4rem 0.8rem;
-      border-radius: 99px;
+      gap: 0.5rem;
+      font-size: 0.78rem;
     }
 
-    /* Hero Right Card */
-    .hero-card {
-      background: var(--surface-1);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
+    .tag-pill {
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-right {
       position: relative;
-      backdrop-filter: blur(10px);
     }
-    
-    .stat-grid {
+
+    .hero-card {
+      border-radius: 22px;
+      background: radial-gradient(circle at 0 0, rgba(34, 211, 238, 0.18), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .hero-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--accent-2);
+    }
+
+    .hero-card-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 0.8rem 1.1rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-card-item-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-card-item-value {
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .hero-chip {
+      font-size: 0.72rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+    }
+
+    /* GENERIC SECTIONS */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.35rem;
+      color: var(--text-strong);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .section-title span.marker {
+      width: 7px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, #22d3ee, #facc15);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    /* FOCUS AREAS */
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.5rem;
-      margin-top: 1.5rem;
     }
-    .stat-item h4 { font-size: 1.5rem; color: var(--text-heading); margin-bottom: 0.25rem; }
-    .stat-item p { font-size: 0.8rem; }
 
-    /* --- Sections --- */
-    section { padding: 4rem 0; }
-    .section-header { margin-bottom: 3rem; }
-    .section-eyebrow { text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-primary); font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 0.5rem;}
-    .section-title { font-size: 2rem; margin-bottom: 1rem; }
-
-    /* --- Experience --- */
-    .experience-stack { display: flex; flex-direction: column; gap: 2rem; }
-
-    .job-card {
-      background: linear-gradient(180deg, rgba(30,41,59,0.3) 0%, rgba(15,23,42,0.3) 100%);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 2.5fr;
-      gap: 2rem;
-      transition: var(--transition);
+    .focus-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.15rem;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.7);
     }
-    .job-card:hover { border-color: var(--text-body); background: var(--surface-1); }
-    .job-meta { display: flex; flex-direction: column; gap: 0.5rem; }
-    .job-date { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; color: var(--accent-primary); }
-    .job-role { font-size: 1.1rem; font-weight: 700; color: var(--text-heading); }
-    .job-company { font-size: 0.95rem; color: var(--text-highlight); }
-    
-    .job-details ul { margin-left: 1rem; margin-top: 1rem; }
-    .job-details li { margin-bottom: 0.6rem; font-size: 0.95rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-    .tag { font-size: 0.75rem; padding: 0.25rem 0.75rem; background: rgba(255,255,255,0.05); border-radius: 99px; color: var(--text-heading); border: 1px solid transparent; }
-    .tag.tech { border-color: rgba(56, 189, 248, 0.2); color: #7dd3fc; }
 
-    /* --- Projects & News Grid --- */
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .focus-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
 
-    .card-base {
-      background: var(--bg-body);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+    .focus-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-strong);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .focus-card-title i {
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+
+    .focus-card-pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .focus-card p {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      margin-bottom: 0.45rem;
+    }
+
+    .focus-list {
+      margin-top: 0.4rem;
+      list-style: none;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .focus-list li {
+      position: relative;
+      padding-left: 1.06rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .focus-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-2);
+      font-size: 0.7rem;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      border-left: 1px solid rgba(55, 65, 81, 0.9);
+      margin-left: 0.4rem;
+      padding-left: 1.6rem;
       display: flex;
       flex-direction: column;
-      height: 100%;
-      transition: var(--transition);
-      padding: 1.5rem;
+      gap: 1.4rem;
     }
-    .card-base:hover { transform: translateY(-5px); border-color: var(--accent-secondary); }
-    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-heading); }
-    .card-subtitle { font-size: 0.8rem; color: var(--text-body); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .card-body { font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
-    
-    .link-row { margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; }
-    .link-item { font-size: 0.85rem; color: var(--accent-secondary); display: inline-flex; align-items: center; gap: 0.3rem; }
-    .link-item:hover { text-decoration: underline; }
 
-    /* --- Tech Grid --- */
-    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-    .tech-card { background: var(--surface-1); border: 1px solid var(--surface-border); border-radius: var(--radius-md); padding: 1.5rem; transition: var(--transition); }
-    .tech-card:hover { border-color: var(--accent-secondary); background: var(--surface-hover); transform: translateY(-2px); }
-    .tech-icon { font-size: 1.8rem; color: var(--accent-secondary); margin-bottom: 1rem; }
-    .tech-title { color: var(--text-heading); font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem; }
-    .tech-list { font-size: 0.85rem; color: var(--text-body); list-style: none; }
-    .tech-list li::before { content: "› "; color: var(--accent-secondary); }
-
-    /* --- Simple List Card (Certs/Volunteering) --- */
-    .simple-list { list-style: none; padding: 0; }
-    .simple-list li { 
-      margin-bottom: 0.8rem; 
-      padding-bottom: 0.8rem; 
-      border-bottom: 1px solid var(--surface-border); 
-      font-size: 0.9rem;
+    .job {
+      position: relative;
     }
-    .simple-list li:last-child { border-bottom: none; }
-    .simple-list strong { color: var(--text-heading); display: block; margin-bottom: 0.2rem; }
 
-    /* Mobile */
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -1.86rem;
+      top: 0.35rem;
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22d3ee 0, #0ea5e9 40%, #1d4ed8 100%);
+      box-shadow: 0 0 16px rgba(34, 211, 238, 0.8);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.2rem;
+    }
+
+    .job-role {
+      font-size: 0.98rem;
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    .job-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .job-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .job-body {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      margin-top: 0.4rem;
+    }
+
+    .job-body p {
+      margin-bottom: 0.5rem;
+    }
+
+    .job-list {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+
+    .job-list li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .job-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+    }
+
+    .job-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .job-tag {
+      font-size: 0.72rem;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-muted);
+    }
+
+    /* PROJECTS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 0.98rem;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+      min-height: 150px;
+    }
+
+    .project-card:hover {
+      border-color: rgba(56, 189, 248, 0.9);
+    }
+
+    .project-type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+    }
+
+    .project-title {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-strong);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .project-title i {
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .project-tags {
+      margin-top: 0.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    .project-tag {
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-muted);
+    }
+
+    /* SKILLS / CERTS SECTION */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skills-block {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.1rem;
+      font-size: 0.82rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem 1.4rem;
+    }
+
+    .skills-group-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .skills-group-content {
+      font-size: 0.84rem;
+      color: var(--text-main);
+    }
+
+    .skills-group-content span {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .list-compact {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .list-compact li {
+      padding: 0.32rem 0;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .list-compact li:last-child {
+      border-bottom: none;
+    }
+
+    .list-secondary {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.22), rgba(15, 23, 42, 0.96));
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      padding: 1.6rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    .contact-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.12rem;
+      color: var(--text-strong);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-text {
+      color: var(--text-main);
+      max-width: 32rem;
+      margin: 0 auto 1.2rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    .contact-link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: var(--text-main);
+    }
+
+    .contact-link-pill i {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .footer {
+      padding: 1.6rem 0 1.4rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      margin-top: 1.2rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .focus-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .job-card { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 68px;
+        padding: 0.75rem 1.2rem 1rem;
+        background: rgba(2, 6, 23, 0.98);
+        border-bottom: 1px solid rgba(30, 64, 175, 0.55);
+        flex-direction: column;
+        gap: 0.6rem;
+        display: none;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 3.3rem;
+      }
+
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
+
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <div class="container nav-content">
-      <div class="logo">
-        <span>RJ</span> Rafi Jahin
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-mark"></div>
+        <div class="nav-logo-text">Rafi Jahin</div>
       </div>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">Toolkit</a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#top" class="nav-link active">Home</a>
+        <a href="#focus" class="nav-link">Focus</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
-        <a href="#certifications" class="nav-link">Certs</a>
-        <a href="#news" class="nav-link">News</a>
+        <a href="#skills" class="nav-link">Skills & Certs</a>
         <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <i class="ph ph-list menu-toggle"></i>
+      </nav>
+
+      <i class="ph ph-list menu-toggle" id="menuToggle"></i>
     </div>
-  </nav>
+  </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <div class="status-pill">
-          <div class="status-dot"></div>
-          <span class="mono">Open for Impact Roles</span>
-        </div>
-        
-        <h1 class="hero-title">
-          Connecting <span class="highlight">Field Realities</span> to <span class="highlight-blue">Digital Systems</span>.
-        </h1>
-        
-        <p class="hero-subtitle">
-          I’m Rafi, a partnerships, project management, and data professional. I sit at the intersection of programme implementation, platforms (LMS, telehealth, DHIS2), analytics, and AI for social impact – helping teams move from MoUs and pilots to systems, evidence, and real users.
-        </p>
-        
-        <div class="hero-actions">
-          <!-- Placeholder for CV Link -->
-          <a href="#" class="btn btn-primary">
-            Download CV <i class="ph ph-download-simple"></i>
-          </a>
-          <a href="#experience" class="btn btn-secondary">
-            View Experience
-          </a>
-        </div>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-kicker">
+            <span class="highlight">Data · Digital Health · Evaluation</span>
+            <span>UN & INGO experience</span>
+          </div>
 
-        <div class="hero-badges">
-          <div class="hero-badge">Officer – Partnership & Innovation, ASTHA</div>
-          <div class="hero-badge">National Young & Emerging Evaluator – UNFPA</div>
-          <div class="hero-badge">Economy of Tomorrow Fellow (FES)</div>
-        </div>
-      </div>
+          <h1 class="hero-title">
+            I work where <span>programmes, platforms and evidence</span> have to talk to each other.
+          </h1>
 
-      <!-- Hero Visual -->
-      <div class="hero-card">
-        <div style="margin-bottom: 1rem;">
-          <i class="ph ph-cpu" style="font-size: 2rem; color: var(--accent-secondary);"></i>
-        </div>
-        <h3 style="margin-bottom: 0.5rem;">The "Hybrid" Advantage</h3>
-        <p style="font-size: 0.9rem; color: var(--text-body);">
-          I move between MoUs, LMS platforms, training plans, and evaluation findings. I also design small, realistic AI workflows for document review and content moderation.
-        </p>
-        
-        <div class="stat-grid">
-          <div class="stat-item">
-            <h4 class="highlight">4+</h4>
-            <p>Years Experience</p>
+          <p class="hero-subtitle">
+            I’m Rafi, a data, digital health and evaluation professional with ~5 years’ experience across
+            <strong>UNFPA, Swisscontact, GAIN and FES</strong>. I build and manage
+            <strong>evidence systems, e-learning platforms and AI-assisted workflows</strong> so teams can move from
+            activities to clear, auditable results.
+          </p>
+
+          <p class="hero-meta">
+            Based in Dhaka · BSc in Information Technology · Working at the intersection of
+            health programmes, digital systems and online harms.
+          </p>
+
+          <div class="hero-actions">
+            <!-- Replace # with your raw CV link if you want -->
+            <a class="btn-primary" href="#" target="_blank" rel="noopener">
+              <i class="ph ph-download-simple"></i>
+              Download CV
+            </a>
+            <a class="btn-ghost" href="#experience">
+              <i class="ph ph-briefcase"></i>
+              See professional track
+            </a>
           </div>
-          <div class="stat-item">
-            <h4 class="highlight-blue">12+</h4>
-            <p>Districts Covered</p>
-          </div>
-          <div class="stat-item">
-            <h4 class="highlight">30+</h4>
-            <p>Institutes Digitized</p>
-          </div>
-          <div class="stat-item">
-            <h4 class="highlight-blue">AI</h4>
-            <p>Augmented M&E</p>
+
+          <div class="hero-tags">
+            <span class="tag-pill">UNFPA – Country Programme Evaluation (CP10)</span>
+            <span class="tag-pill">Swisscontact – ASTHA Community Paramedic LMS</span>
+            <span class="tag-pill">GAIN – Digital traceability in nutrition</span>
+            <span class="tag-pill">FES – Economy of Tomorrow research fellow</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- TOOLKIT SECTION (Restored Skills) -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Skills & Focus</span>
-        <h2 class="section-title">Technical Toolkit</h2>
-      </div>
+        <!-- Right-side summary card -->
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <div class="hero-card-title">Snapshot – what I actually do</div>
+              <div class="hero-card-badge">
+                <i class="ph ph-cpu"></i> AI, data & field
+              </div>
+            </div>
 
-      <div class="tech-grid">
-        <div class="tech-card">
-          <i class="ph ph-robot tech-icon"></i>
-          <h3 class="tech-title">AI & Data</h3>
-          <ul class="tech-list">
-            <li>NotebookLM & Gemini Workflows</li>
-            <li>Power BI Dashboards</li>
-            <li>Python (Pandas) & R Basics</li>
-            <li>Synthetic Data Stress Testing</li>
-          </ul>
-        </div>
+            <div class="hero-card-grid">
+              <div>
+                <div class="hero-card-item-label">Current role</div>
+                <div class="hero-card-item-value">
+                  National Consultant – <span style="white-space: nowrap;">CP Evaluation</span>, UNFPA Bangladesh
+                </div>
+              </div>
+              <div>
+                <div class="hero-card-item-label">Main stack</div>
+                <div class="hero-card-item-value">
+                  Excel · Power BI · basic R/Python · Moodle · DHIS2-facing work · GitHub Pages
+                </div>
+              </div>
+              <div>
+                <div class="hero-card-item-label">How I use AI</div>
+                <div class="hero-card-item-value">
+                  NotebookLM · Gemini · ChatGPT for document review, transcripts & audit trails – always with human checks.
+                </div>
+              </div>
+              <div>
+                <div class="hero-card-item-label">Sectors</div>
+                <div class="hero-card-item-value">
+                  SRHR & GBV · community health · nutrition · social protection · online harms
+                </div>
+              </div>
+            </div>
 
-        <div class="tech-card">
-          <i class="ph ph-globe tech-icon"></i>
-          <h3 class="tech-title">Digital Systems</h3>
-          <ul class="tech-list">
-            <li>Moodle LMS Admin</li>
-            <li>DHIS2 (User/Config)</li>
-            <li>Telehealth Integration</li>
-            <li>ODK / KoboToolbox</li>
-          </ul>
-        </div>
-
-        <div class="tech-card">
-          <i class="ph ph-users-three tech-icon"></i>
-          <h3 class="tech-title">Programme</h3>
-          <ul class="tech-list">
-            <li>Partnership Management</li>
-            <li>Private Sector Engagement</li>
-            <li>Evaluation Frameworks</li>
-            <li>Labour Market Linkages</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE SECTION (Restored Full Details) -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Professional History</span>
-        <h2 class="section-title">Experience Timeline</h2>
-      </div>
-
-      <div class="experience-stack">
-        
-        <!-- Job 1: UNFPA -->
-        <article class="job-card">
-          <div class="job-meta">
-            <span class="job-date">2024 — Present</span>
-            <div class="job-role">National Young & Emerging Evaluator</div>
-            <div class="job-company">UNFPA Bangladesh · 10th CPE</div>
-          </div>
-          <div class="job-details">
-            <p>Co-leading the analytical backbone of UNFPA Bangladesh’s 10th CPE, from framework design to data synthesis, with structured use of AI tools.</p>
-            <ul>
-              <li><strong>Framework Design:</strong> Co-designed the evaluation framework, ToC refinements, and full evaluation matrix aligned with UNEG and the UNFPA 2024 Evaluation Handbook.</li>
-              <li><strong>Evidence Systems:</strong> Built and maintained findings grids, indicator trend tables, LNOB trackers, and effectiveness annexes.</li>
-              <li><strong>Fieldwork:</strong> Planned and supported multi-district field missions, FGDs and KIIs, including tools, sampling logic, and note-taking structures.</li>
-              <li><strong>AI Innovation:</strong> Set up and tested AI-supported workflows (NotebookLM, Gemini) for document review, transcript handling, and consistency checks.</li>
-              <li><strong>Visualization:</strong> Helped shape the visual story of the CPE (dashboards, slide decks) so senior management could quickly see patterns.</li>
-            </ul>
-            <div class="tags">
-              <span class="tag tech">Evaluation Handbook 2024</span>
-              <span class="tag tech">Data Viz</span>
-              <span class="tag">Evidence Systems</span>
-              <span class="tag tech">AI Analysis</span>
+            <div class="hero-chip-row">
+              <span class="hero-chip">Evaluation matrices & ToC refinement</span>
+              <span class="hero-chip">Moodle e-learning implementation</span>
+              <span class="hero-chip">Digital health / telehealth partnerships</span>
+              <span class="hero-chip">Field missions & mixed-methods design</span>
             </div>
           </div>
-        </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- Job 2: Swisscontact -->
-        <article class="job-card">
-          <div class="job-meta">
-            <span class="job-date">2021 — 2025</span>
-            <div class="job-role">Officer – Partnership & Innovation</div>
-            <div class="job-company">Swisscontact · ASTHA Project</div>
-          </div>
-          <div class="job-details">
-            <p>Led partnerships, digital innovation, and scaling for ASTHA, linking curriculum, platforms, employers and government.</p>
-            <ul>
-              <li><strong>Strategic Partnerships:</strong> Led partnerships with Shomvob, Zabai, ADN Diginet, Zaynax Health and Roche to expand job opportunities and telehealth services.</li>
-              <li><strong>Digital Innovation:</strong> Led the end-to-end digitisation of the CP curriculum onto a mobile-optimised Moodle LMS for 30 training institutes. Coordinated with tech partners for AR/3D content integration.</li>
-              <li><strong>Employment & Income:</strong> Led job fairs and digital job-platform linkages that connected hundreds of CP graduates to employers.</li>
-              <li><strong>Service Diversification:</strong> Helped pilot cancer screening initiatives with Roche, broadening CP roles in early detection.</li>
+    <!-- FOCUS AREAS -->
+    <section id="focus">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="marker"></span>
+            Focus areas
+          </h2>
+          <p class="section-subtitle">
+            Not “just evaluation” and not “just data”. I sit in the messy middle where programme logic,
+            digital systems and evidence have to line up.
+          </p>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card">
+            <div class="focus-card-header">
+              <div class="focus-card-title">
+                <i class="ph ph-activity"></i>
+                Evaluation & evidence systems
+              </div>
+              <div class="focus-card-pill">UNFPA CP10</div>
+            </div>
+            <p>
+              Designing evaluation matrices, tracking systems and audit trails so every major finding
+              can be traced back to data, not vibes.
+            </p>
+            <ul class="focus-list">
+              <li>Evaluation matrix & ToC refinement in line with UNEG and UNFPA 2024 Evaluation Handbook.</li>
+              <li>Indicator trend analysis (BDHS, MICS, SVRS, VAWS, DHIS2) for SRHR, GBV, youth and population data.</li>
+              <li>Evidence repositories linking 400–480+ documents, KIIs, FGDs and programme data into a single system.</li>
             </ul>
-            <div class="tags">
-              <span class="tag tech">Moodle LMS</span>
-              <span class="tag">Partnership Mgmt</span>
-              <span class="tag">Labour Market</span>
-              <span class="tag">Govt Engagement</span>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-card-header">
+              <div class="focus-card-title">
+                <i class="ph ph-pulse"></i>
+                Digital health & e-learning
+              </div>
+              <div class="focus-card-pill">ASTHA, GAIN</div>
+            </div>
+            <p>
+              Turning health training and value-chain ideas into actual platforms people can use with low bandwidth.
+            </p>
+            <ul class="focus-list">
+              <li>Migrated the national Community Paramedic curriculum to a mobile-optimised Moodle LMS for 30 institutes.</li>
+              <li>Structured courses, quizzes and H5P/visual content so rural students and faculty could learn on basic smartphones.</li>
+              <li>Supported digital traceability pilots in nutrition value chains with QR codes, mobile apps and dashboards.</li>
+            </ul>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-card-header">
+              <div class="focus-card-title">
+                <i class="ph ph-brain"></i>
+                Data & AI for social impact
+              </div>
+              <div class="focus-card-pill">Practical, small steps</div>
+            </div>
+            <p>
+              I don’t sell “magic AI”. I design small, auditable workflows that save time without hiding where the evidence came from.
+            </p>
+            <ul class="focus-list">
+              <li>AI-assisted document review and transcript structuring (NotebookLM, Gemini, ChatGPT) with clear audit trails.</li>
+              <li>Basic R/Python and Power BI for indicator trends, descriptive stats and clean visuals for senior audiences.</li>
+              <li>Emerging work on LLMs and online harms (cyberhate, misinformation) in Bangla–Hindi–English spaces.</li>
+            </ul>
+          </article>
+
+          <article class="focus-card">
+            <div class="focus-card-header">
+              <div class="focus-card-title">
+                <i class="ph ph-handshake"></i>
+                Implementation & partnerships
+              </div>
+              <div class="focus-card-pill">UN & INGO field</div>
+            </div>
+            <p>
+              Contracts, MoUs, field missions, bootcamps, screenings, job fairs – the unglamorous pieces that make systems real.
+            </p>
+            <ul class="focus-list">
+              <li>Partnership and contract management with NGOs, private firms and government (Shomvob, Zabai, ADN, Zaynax, Roche).</li>
+              <li>Multi-district field mission planning for KIIs/FGDs and community-level campaigns (cancer screening, dengue response).</li>
+              <li>Job fairs and labour-market linkages that actually move graduates into work and increased income.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="marker"></span>
+            Professional experience
+          </h2>
+          <p class="section-subtitle">
+            The short version: I’ve moved between evaluation, implementation and digital systems long enough
+            to know where they usually break – and how to keep them aligned.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!-- UNFPA -->
+          <article class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-role">National Consultant – Country Programme Evaluation</div>
+                <div class="job-org">United Nations Population Fund (UNFPA) · Bangladesh</div>
+              </div>
+              <div class="job-meta">Feb 2025 – Present · Dhaka</div>
+            </div>
+            <div class="job-body">
+              <p>
+                Core member of the team evaluating UNFPA Bangladesh’s 10th Country Programme, covering SRHR, GBV/EVAW,
+                adolescents & youth, population data and humanitarian work.
+              </p>
+              <ul class="job-list">
+                <li>Co-designed the evaluation framework, refined the ToC and developed the full evaluation matrix in line with UNEG and the 2024 Evaluation Handbook.</li>
+                <li>Managed a 480+-document evidence repository and audit-trail system linking sources, indicators, findings and recommendations.</li>
+                <li>Led indicator trend analysis using BDHS, MICS, SVRS, VAWS and programme data to identify progress, bottlenecks and equity gaps (LNOB).</li>
+                <li>Planned and supported multi-district field missions (tools, sampling, schedules) and coordinated ethical handling of KIIs and FGDs.</li>
+                <li>Set up AI-assisted workflows for document review and coding (NotebookLM, Gemini, ChatGPT), cutting screening time while keeping human validation.</li>
+              </ul>
+              <div class="job-tags">
+                <span class="job-tag">Evaluation design</span>
+                <span class="job-tag">Trend analysis</span>
+                <span class="job-tag">AI for evidence</span>
+                <span class="job-tag">LNOB / equity</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- GAIN -->
+          <article class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Project Assistant – Digital Innovation</div>
+                <div class="job-org">Global Alliance for Improved Nutrition (GAIN)</div>
+              </div>
+              <div class="job-meta">Aug 2024 – Feb 2025 · Dhaka</div>
+            </div>
+            <div class="job-body">
+              <p>
+                Supported a digital traceability and innovation project in nutrition value chains, linking farmers, traders and
+                dashboards instead of leaving data in notebooks.
+              </p>
+              <ul class="job-list">
+                <li>Coordinated data collection from farmers and value-chain actors; cleaned and consolidated datasets in Excel for analysis and reporting.</li>
+                <li>Assisted in configuring and testing QR-based traceability tools, mobile apps and dashboards, documenting user feedback for the tech team.</li>
+                <li>Organised trainings and workshops for farmers and partners, strengthening digital literacy and record-keeping.</li>
+              </ul>
+              <div class="job-tags">
+                <span class="job-tag">Digital traceability</span>
+                <span class="job-tag">Data cleaning</span>
+                <span class="job-tag">Workshop support</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Swisscontact -->
+          <article class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Officer – Partnership & Innovation (ASTHA Community Paramedic)</div>
+                <div class="job-org">Swisscontact Bangladesh</div>
+              </div>
+              <div class="job-meta">Nov 2021 – Aug 2024 · Dhaka & field</div>
+            </div>
+            <div class="job-body">
+              <p>
+                Sat at the junction of partnerships, e-learning and field implementation to strengthen Community Paramedic
+                training and services across 12+ districts.
+              </p>
+              <ul class="job-list">
+                <li>Led migration of the national Community Paramedic curriculum to a mobile-optimised Moodle LMS for 30 institutes, including course structures, quizzes and H5P/visual content.</li>
+                <li>Developed simple admin processes so institutes could manage accounts, enrolment and analytics without external consultants.</li>
+                <li>Drove partnerships and contracts with Shomvob, Zabai, ADN Diginet, Zaynax Health and Roche Bangladesh – from concept and MoUs to follow-up.</li>
+                <li>Organised job fairs and digital matching mechanisms that linked hundreds of CP graduates to employment and higher income.</li>
+                <li>Maintained trackers and light dashboards for trainees, job outcomes and client reach, and supported donor reports and Swisscontact stories with data and narratives.</li>
+              </ul>
+              <div class="job-tags">
+                <span class="job-tag">Moodle LMS</span>
+                <span class="job-tag">Partnerships</span>
+                <span class="job-tag">Job fairs</span>
+                <span class="job-tag">Health systems</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- FES -->
+          <article class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-role">Research Fellow – Economy of Tomorrow</div>
+                <div class="job-org">Friedrich-Ebert-Stiftung (FES) Bangladesh</div>
+              </div>
+              <div class="job-meta">Mar 2022 – Nov 2022 · Dhaka</div>
+            </div>
+            <div class="job-body">
+              <p>
+                Designed and implemented a qualitative policy study on gender incongruence, social protection and entrepreneurship in Bangladesh.
+              </p>
+              <ul class="job-list">
+                <li>Conducted 20+ in-depth interviews and qualitative analysis on economic and social barriers for gender-incongruent entrepreneurs.</li>
+                <li>Produced a policy paper with recommendations for government and development partners, recognised with a formal Letter of Appreciation.</li>
+                <li>Supported policy dialogues and dissemination, translating research into language people outside academia could use.</li>
+              </ul>
+              <div class="job-tags">
+                <span class="job-tag">Qualitative research</span>
+                <span class="job-tag">Policy paper</span>
+                <span class="job-tag">Social protection</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="marker"></span>
+            Selected projects
+          </h2>
+          <p class="section-subtitle">
+            A few concrete things people can click. Most of the serious work lives in restricted systems,
+            but these give a sense of how I think and build.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project-card" href="https://rafijahiin.github.io/visualideas/" target="_blank" rel="noopener">
+            <div class="project-type">Data visualisation</div>
+            <div class="project-title">
+              <i class="ph ph-chart-line-up"></i>
+              CPE Visual Ideas
+            </div>
+            <p class="project-desc">
+              GitHub Pages sandbox where I test ways of presenting complex evaluation findings and equity data
+              without drowning people in 80-page annexes.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">GitHub Pages</span>
+              <span class="project-tag">Evaluation</span>
+              <span class="project-tag">Visual storytelling</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="https://rafijahiin.github.io/trend-analysis/" target="_blank" rel="noopener">
+            <div class="project-type">Analytics</div>
+            <div class="project-title">
+              <i class="ph ph-trend-up"></i>
+              Trend Analysis Playground
+            </div>
+            <p class="project-desc">
+              Time-series and indicator breakdowns used to support narrative findings in the UNFPA Country
+              Programme Evaluation.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">SRHR & GBV</span>
+              <span class="project-tag">Excel / BI</span>
+              <span class="project-tag">LNOB</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="https://rafijahiin.github.io/Achievement-by-Theme-withIndicatorDetailsDecember2024/" target="_blank" rel="noopener">
+            <div class="project-type">Evidence mapping</div>
+            <div class="project-title">
+              <i class="ph ph-squares-four"></i>
+              Indicator Theme Explorer
+            </div>
+            <p class="project-desc">
+              Interactive overview of indicators by theme and outcome, built to keep the CPE evidence base navigable
+              for the team and reviewers.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Evidence system</span>
+              <span class="project-tag">GitHub</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="https://www.swisscontact.org/en/news/the-e-learning-platform-for-the-community-paramedic-training-is-now-open-source" target="_blank" rel="noopener">
+            <div class="project-type">Digital learning</div>
+            <div class="project-title">
+              <i class="ph ph-laptop"></i>
+              Open-Source Community Paramedic LMS
+            </div>
+            <p class="project-desc">
+              Swisscontact feature on the Moodle-based e-learning platform I helped build and roll out for Community
+              Paramedic training institutes.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Moodle</span>
+              <span class="project-tag">Health training</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="https://www.thedailystar.net/business/organisation-news/press-releases/news/zaynax-health-and-astha-join-hands-extend-affordable-healthcare-services-3429726" target="_blank" rel="noopener">
+            <div class="project-type">Partnerships</div>
+            <div class="project-title">
+              <i class="ph ph-link-simple"></i>
+              ASTHA × Zaynax Health
+            </div>
+            <p class="project-desc">
+              Media coverage of a public–private partnership I supported, extending telehealth and affordable
+              services through Community Paramedics.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Telehealth</span>
+              <span class="project-tag">Public–private</span>
+            </div>
+          </a>
+
+          <div class="project-card">
+            <div class="project-type">AI workflow</div>
+            <div class="project-title">
+              <i class="ph ph-brain"></i>
+              AI “sidecar” for evaluation (private)
+            </div>
+            <p class="project-desc">
+              Ongoing experiments with LLM-powered side tools for document review, transcript structuring and audit
+              trails in evaluations – small, realistic pieces that can be explained to an ethics board.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">NotebookLM</span>
+              <span class="project-tag">Gemini</span>
+              <span class="project-tag">ChatGPT</span>
             </div>
           </div>
-        </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- Job 3: GAIN (RESTORED) -->
-        <article class="job-card">
-          <div class="job-meta">
-            <span class="job-date">Past Role</span>
-            <div class="job-role">Project Assistant – Digital Innovation</div>
-            <div class="job-company">GAIN (Global Alliance for Improved Nutrition)</div>
-          </div>
-          <div class="job-details">
-            <p>Worked on a digital traceability / innovation project in the nutrition space.</p>
-            <ul>
-              <li>Supported field and partner coordination on a traceability-oriented intervention in food/nutrition supply chains.</li>
-              <li>Helped keep datasets, trackers, and documentation in shape for reporting and learning.</li>
-            </ul>
-            <div class="tags">
-              <span class="tag tech">Digital Traceability</span>
-              <span class="tag">Nutrition</span>
-              <span class="tag">Data Housekeeping</span>
+    <!-- SKILLS & CERTS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="marker"></span>
+            Skills, tools & certifications
+          </h2>
+          <p class="section-subtitle">
+            This is the “what can he actually touch and configure” section – from data and AI tools to LMS admin and
+            classic M&E.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <!-- Skills -->
+          <div class="skills-block">
+            <h3 style="font-size:0.95rem; margin-bottom:0.7rem; color:var(--text-strong);">Technical & professional skills</h3>
+            <div class="skills-grid">
+              <div>
+                <div class="skills-group-title">Data & analysis</div>
+                <div class="skills-group-content">
+                  Excel (advanced), Google Sheets, basic Power BI, basic R/Python.<br />
+                  <span>Cleaning, descriptive stats, simple dashboards and visuals.</span>
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Digital platforms</div>
+                <div class="skills-group-content">
+                  Moodle (admin), H5P, GitHub Pages, basic web content, DHIS2-facing work, Kobo/ODK.
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">AI & automation</div>
+                <div class="skills-group-content">
+                  NotebookLM, Gemini, ChatGPT for summarisation, coding support, evidence synthesis and quality checks –
+                  always with a human in the loop.
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Monitoring & evaluation</div>
+                <div class="skills-group-content">
+                  Evaluation matrix and ToC design, F-C-R logic, mixed-methods design, simple contribution analysis,
+                  audit trails.
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Programme & partnerships</div>
+                <div class="skills-group-content">
+                  Contract and MoU management, partner follow-up, job fairs, field mission logistics, basic procurement steps.
+                </div>
+              </div>
+              <div>
+                <div class="skills-group-title">Communication</div>
+                <div class="skills-group-content">
+                  Clear reports, briefs and slide decks in Bangla and English; facilitation of trainings, workshops and policy dialogues.
+                </div>
+              </div>
             </div>
           </div>
-        </article>
 
-        <!-- Job 4: FES -->
-        <article class="job-card">
-          <div class="job-meta">
-            <span class="job-date">2022</span>
-            <div class="job-role">Research Fellow</div>
-            <div class="job-company">Friedrich-Ebert-Stiftung (FES)</div>
-          </div>
-          <div class="job-details">
-            <p>Selected as an Economy of Tomorrow (EoT) Fellow to research gender incongruence.</p>
-            <ul>
-              <li>Developed the policy paper <strong>“Gender incongruence and social entrepreneurship in Bangladesh”</strong>.</li>
-              <li>Worked under the guidance of Dhaka University faculty and senior researchers from RAPID.</li>
-              <li>Received formal Letter of Appreciation from the FES Resident Representative.</li>
+          <!-- Certs / Education -->
+          <div class="skills-block">
+            <h3 style="font-size:0.95rem; margin-bottom:0.4rem; color:var(--text-strong);">Education & selected certifications</h3>
+            <ul class="list-compact">
+              <li>
+                <strong>BSc (Hons) in Information Technology</strong><br />
+                <span class="list-secondary">Jahangirnagar University, Bangladesh</span>
+              </li>
+              <li>
+                <strong>Google Data Analytics – Professional Certificate</strong><br />
+                <span class="list-secondary">Google / Coursera</span>
+              </li>
+              <li>
+                <strong>Google Project Management – Professional Certificate</strong><br />
+                <span class="list-secondary">Google / Coursera</span>
+              </li>
+              <li>
+                <strong>Digital Health Specialization</strong><br />
+                <span class="list-secondary">Imperial College London (Coursera)</span>
+              </li>
+              <li>
+                <strong>Introduction to DHIS2</strong><br />
+                <span class="list-secondary">DHIS2 Online Academy (GEN-D001-en)</span>
+              </li>
+              <li>
+                <strong>R Programming & R Track</strong><br />
+                <span class="list-secondary">Johns Hopkins University · DataCamp</span>
+              </li>
+              <li>
+                <strong>Moodle Administration</strong><br />
+                <span class="list-secondary">Udemy</span>
+              </li>
+              <li>
+                <strong>IELTS</strong><br />
+                <span class="list-secondary">Overall Band 7.5</span>
+              </li>
             </ul>
-            <div class="tags">
-              <span class="tag">Policy Research</span>
-              <span class="tag">Inclusion</span>
-              <span class="tag">Fellowship</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS (Restored Project 3) -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Portfolio</span>
-        <h2 class="section-title">Selected Projects</h2>
-      </div>
-
-      <div class="grid-3">
-        <!-- P1 -->
-        <div class="card-base">
-          <div class="status-pill" style="width: fit-content; margin-bottom: 1rem;">Data Viz</div>
-          <h3 class="card-title">CPE Visual Narratives</h3>
-          <p class="card-body">A GitHub Pages project showcasing options for presenting complex CPE findings and equity data without drowning people in tables.</p>
-          <a href="https://rafijahiin.github.io/visualideas/" target="_blank" class="link-item">View Project ↗</a>
-        </div>
-
-        <!-- P2 -->
-        <div class="card-base">
-          <div class="status-pill" style="width: fit-content; margin-bottom: 1rem;">Analytics</div>
-          <h3 class="card-title">SRH Trend Explorer</h3>
-          <p class="card-body">Interactive time-series and indicator breakdown visuals for SRH and GBV outcomes, built to support narrative findings.</p>
-          <a href="https://rafijahiin.github.io/trend-analysis/" target="_blank" class="link-item">View Project ↗</a>
-        </div>
-
-        <!-- P3 (RESTORED) -->
-        <div class="card-base">
-          <div class="status-pill" style="width: fit-content; margin-bottom: 1rem;">Data Structure</div>
-          <h3 class="card-title">Indicator Theme Explorer</h3>
-          <p class="card-body">A GitHub-hosted interactive overview of indicators by theme and outcome, supporting a structured view of CPE evidence sources.</p>
-          <a href="https://rafijahiin.github.io/Achievement-by-Theme-withIndicatorDetailsDecember2024/" target="_blank" class="link-item">View Project ↗</a>
-        </div>
-
-        <!-- P4 -->
-        <div class="card-base">
-          <div class="status-pill" style="width: fit-content; margin-bottom: 1rem;">AI Workflow</div>
-          <h3 class="card-title">AI Sidecar for M&E</h3>
-          <p class="card-body">Experiments with LLMs to support document review, transcript structuring, and evidence checks for evaluations. Reduces grunt work.</p>
-          <span class="link-item">Documented Privately</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS (RESTORED) -->
-  <section id="certifications">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Continuous Learning</span>
-        <h2 class="section-title">Certifications</h2>
-      </div>
-
-      <div class="grid-2">
-        <div class="card-base">
-          <h3 class="card-title">Data & Programming</h3>
-          <ul class="simple-list">
-            <li>
-              <strong>Google Data Analytics (Professional Certificate)</strong>
-              Google · Dec 2024
-            </li>
-            <li>
-              <strong>R Programming & Track</strong>
-              Johns Hopkins University & DataCamp · May 2020
-            </li>
-            <li>
-              <strong>Power BI Essential Training</strong>
-              LinkedIn Learning · Sep 2022
-            </li>
-            <li>
-              <strong>Python Basics</strong>
-              Self-taught/Applied in M&E
-            </li>
-          </ul>
-        </div>
-
-        <div class="card-base">
-          <h3 class="card-title">Digital Health & Mgmt</h3>
-          <ul class="simple-list">
-            <li>
-              <strong>Intro to DHIS2</strong>
-              DHIS2 Online Academy · Sep 2024
-            </li>
-            <li>
-              <strong>Digital Health Specialization</strong>
-              Imperial College London · Feb 2023
-            </li>
-            <li>
-              <strong>Google Project Management</strong>
-              Google · Dec 2023
-            </li>
-            <li>
-              <strong>Moodle Administration</strong>
-              Udemy
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWS & MEDIA (RESTORED) -->
-  <section id="news">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">Press & Coverage</span>
-        <h2 class="section-title">In the Media</h2>
-      </div>
-
-      <div class="grid-2">
-        <div class="card-base">
-          <h3 class="card-title">Swisscontact Stories</h3>
-          <div class="card-subtitle">ASTHA Platform Scale-up</div>
-          <div class="card-body">
-            <ul class="simple-list">
-              <li><a href="https://www.swisscontact.org/en/news/the-community-paramedic-cp-training-is-now-interactively-digitized" target="_blank" class="link-item">The CP training is now interactively digitized ↗</a></li>
-              <li><a href="https://www.swisscontact.org/en/news/teachers-receive-training-on-e-learning-platform-astha" target="_blank" class="link-item">Teachers receive training on e-Learning ↗</a></li>
-              <li><a href="https://www.swisscontact.org/en/news/the-e-learning-platform-for-the-community-paramedic-training-is-now-open-source" target="_blank" class="link-item">Platform is now open-source ↗</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card-base">
-          <h3 class="card-title">External Partnerships</h3>
-          <div class="card-subtitle">Job Fairs & Telehealth</div>
-          <div class="card-body">
-            <ul class="simple-list">
-              <li><a href="https://www.thedailystar.net/business/organisation-news/press-releases/news/zaynax-health-and-astha-join-hands-extend-affordable-healthcare-services-3429726" target="_blank" class="link-item">Daily Star: Zaynax Health & ASTHA partnership ↗</a></li>
-              <li><a href="https://www.swisscontact.org/en/news/astha-and-shomvob-has-partnered-to-promote-employment-opportunities-for-community-paramedics-cps" target="_blank" class="link-item">ASTHA & Shomvob partner for employment ↗</a></li>
-              <li><a href="https://www.swisscontact.org/en/news/swisscontact-and-zabai-team-up-to-empower-community-paramedic-cp-practitioners" target="_blank" class="link-item">Swisscontact & Zabai team up ↗</a></li>
-            </ul>
+            <p style="margin-top:0.7rem; font-size:0.8rem; color:var(--text-muted);">
+              Full list of certifications and news links are available on request or via my Google Site.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- VOLUNTEERING (RESTORED) -->
-  <section id="volunteering">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" style="font-size: 1.5rem;">Volunteering & Leadership</h2>
-      </div>
-      <div class="card-base">
-        <ul class="tags">
-          <li class="tag">Vice Chair & Secretary – IEEE Jahangirnagar University (2018–2020)</li>
-          <li class="tag">Campus Ambassador – National Robotech Festival</li>
-          <li class="tag">Student Ambassador – REVE Antivirus</li>
-          <li class="tag">First DRR Photography Exhibition – JICA</li>
-          <li class="tag">Participant – ACM ICPC-related contests</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" style="padding-bottom: 6rem;">
-    <div class="container">
-      <div class="contact-box">
-        <h2 style="margin-bottom: 1rem; color: #fff;">Ready to bridge the gap?</h2>
-        <p style="color: var(--text-body); max-width: 600px; margin: 0 auto 2rem;">
-          I am interested in roles at the intersection of <strong>Programme Implementation</strong> and <strong>Data Strategy</strong> within UN agencies and INGOs.
-        </p>
-        
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="mailto:rafijahinmsc@gmail.com" class="btn btn-primary">
-            <i class="ph ph-envelope"></i> Email Me
-          </a>
-          <a href="https://www.linkedin.com/in/rafijahin/" target="_blank" class="btn btn-secondary">
-            <i class="ph ph-linkedin-logo"></i> LinkedIn
-          </a>
-          <a href="https://github.com/rafijahiin" target="_blank" class="btn btn-secondary">
-            <i class="ph ph-github-logo"></i> GitHub
-          </a>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2 class="contact-title">Let’s talk about work that actually lands</h2>
+          <p class="contact-text">
+            I’m interested in roles and collaborations where I can combine
+            <strong>project implementation, digital systems, data and evaluation</strong> – especially in UN / INGO and
+            public sector contexts. If you need someone who can move between slide decks, SQL-ish sheets, Moodle admin
+            and field missions without losing the plot, reach out.
+          </p>
+          <div class="contact-links">
+            <a class="contact-link-pill" href="mailto:rafijahinmsc@gmail.com">
+              <i class="ph ph-envelope-simple"></i>
+              rafijahinmsc@gmail.com
+            </a>
+            <a class="contact-link-pill" href="https://www.linkedin.com/in/rafijahin/" target="_blank" rel="noopener">
+              <i class="ph ph-linkedin-logo"></i>
+              LinkedIn
+            </a>
+            <a class="contact-link-pill" href="https://github.com/rafijahiin" target="_blank" rel="noopener">
+              <i class="ph ph-github-logo"></i>
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer style="border-top: 1px solid var(--surface-border); padding: 2rem 0; text-align: center; color: var(--text-body); font-size: 0.8rem;">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Rafi Jahin. Built for the modern web.</p>
-    </div>
-  </footer>
+    <footer class="footer">
+      <div class="container">
+        &copy; <span id="year"></span> Rafi Jahin · Built by hand, hosted on GitHub Pages.
+      </div>
+    </footer>
+  </main>
 
   <script>
-    // Update Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Scroll Highlight
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-link");
+    // Mobile nav toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-    window.addEventListener("scroll", () => {
-      let current = "";
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+
+    // Active nav link on scroll (simple)
+    const sections = document.querySelectorAll("main section[id]");
+    const navItems = document.querySelectorAll(".nav-link");
+
+    function setActiveNav() {
+      let currentId = "top";
+      const scrollY = window.pageYOffset;
+
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 200)) {
-          current = section.getAttribute("id");
+        const offsetTop = section.offsetTop - 120;
+        if (scrollY >= offsetTop) {
+          currentId = section.getAttribute("id");
         }
       });
 
-      navLinks.forEach((link) => {
+      navItems.forEach((link) => {
         link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
+        const href = link.getAttribute("href").slice(1);
+        if (href === currentId || (href === "top" && currentId === "top")) {
           link.classList.add("active");
         }
       });
-    });
+    }
 
-    // Mobile Menu
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinkContainer = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-      const isVisible = navLinkContainer.style.display === 'flex';
-      navLinkContainer.style.display = isVisible ? 'none' : 'flex';
-      navLinkContainer.style.flexDirection = 'column';
-      navLinkContainer.style.position = 'absolute';
-      navLinkContainer.style.top = '72px';
-      navLinkContainer.style.left = '0';
-      navLinkContainer.style.width = '100%';
-      navLinkContainer.style.background = 'var(--bg-body)';
-      navLinkContainer.style.padding = '2rem';
-      navLinkContainer.style.borderBottom = '1px solid var(--surface-border)';
-    });
+    window.addEventListener("scroll", setActiveNav);
+    setActiveNav();
   </script>
 </body>
 </html>
